@@ -1,0 +1,65 @@
+{
+  "name": "Metalens living-atlas benchmark",
+  "version": "1.0",
+  "scope": "Modern optical metasurface metalenses from phase-discontinuity foundations to major device branches.",
+  "validation_sources": [
+    "https://doi.org/10.1021/acsphotonics.3c00457",
+    "https://doi.org/10.1038/s41377-022-00885-7",
+    "https://doi.org/10.1038/s41578-020-0203-3"
+  ],
+  "runs": [
+    {
+      "id": "core",
+      "purpose": "Mainline, achromatic, and tunable history",
+      "target_branches": ["foundation", "visible_mainline", "achromatic", "tunable"],
+      "queries": ["metalens metasurface history", "achromatic tunable metalens"],
+      "seeds": [
+        "10.1126/science.aaf6644",
+        "10.1038/s41565-017-0034-6",
+        "10.1038/s41467-021-21440-9"
+      ]
+    },
+    {
+      "id": "manufacturing",
+      "purpose": "Large-area and scalable fabrication branch",
+      "target_branches": ["manufacturing"],
+      "queries": ["large metalens manufacturing", "large area metalens fabrication"],
+      "seeds": ["10.1021/acs.nanolett.9b03333"]
+    },
+    {
+      "id": "computational",
+      "purpose": "Computational and inverse-designed meta-optics branch",
+      "target_branches": ["computational"],
+      "queries": ["computational metalens inverse design", "neural meta-optics imaging"],
+      "seeds": ["10.1038/s41467-021-26443-0"]
+    },
+    {
+      "id": "wide_field",
+      "purpose": "Wide-field imaging branch",
+      "target_branches": ["wide_field"],
+      "queries": ["wide-angle metalens imaging", "wide field of view metalens"],
+      "seeds": ["10.1038/ncomms13682"]
+    }
+  ],
+  "milestones": [
+    {"doi": "10.1126/science.1210713", "year": 2011, "branch": "foundation", "role": "phase_discontinuity", "title": "Light Propagation with Phase Discontinuities: Generalized Laws of Reflection and Refraction"},
+    {"doi": "10.1021/nl302516v", "year": 2012, "branch": "foundation", "role": "plasmonic_flat_lens", "title": "Aberration-Free Ultrathin Flat Lenses and Axicons at Telecom Wavelengths Based on Plasmonic Metasurfaces"},
+    {"doi": "10.1126/science.1253213", "year": 2014, "branch": "foundation", "role": "dielectric_gradient", "title": "Dielectric gradient metasurface optical elements"},
+    {"doi": "10.1038/ncomms8069", "year": 2015, "branch": "foundation", "role": "high_efficiency_dielectric", "title": "Subwavelength-thick lenses with high numerical apertures and large efficiency based on high-contrast transmitarrays"},
+    {"doi": "10.1126/science.aaf6644", "year": 2016, "branch": "visible_mainline", "role": "visible_high_na", "title": "Metalenses at visible wavelengths: Diffraction-limited focusing and subwavelength resolution imaging"},
+    {"doi": "10.1021/acs.nanolett.6b05137", "year": 2017, "branch": "achromatic", "role": "dispersion_engineering", "title": "Achromatic Metalens over 60 nm Bandwidth in the Visible and Metalens with Reverse Chromatic Dispersion"},
+    {"doi": "10.1038/s41565-017-0034-6", "year": 2018, "branch": "achromatic", "role": "broadband_visible", "title": "A broadband achromatic metalens for focusing and imaging in the visible"},
+    {"doi": "10.1038/s41565-017-0052-4", "year": 2018, "branch": "achromatic", "role": "broadband_visible", "title": "A broadband achromatic metalens in the visible"},
+    {"doi": "10.1038/s41377-018-0078-x", "year": 2018, "branch": "achromatic", "role": "broadband_dielectric", "title": "Broadband achromatic dielectric metalenses"},
+    {"doi": "10.1038/s41467-018-03155-6", "year": 2018, "branch": "tunable", "role": "mems_tunable", "title": "MEMS-tunable dielectric metasurface lens"},
+    {"doi": "10.1038/s41467-021-21440-9", "year": 2021, "branch": "tunable", "role": "phase_change_reconfigurable", "title": "Reconfigurable all-dielectric metalens with diffraction-limited performance"},
+    {"doi": "10.1364/oe.26.001573", "year": 2018, "branch": "manufacturing", "role": "mass_manufacturing", "title": "Large area metalenses: design, characterization, and mass manufacturing"},
+    {"doi": "10.1021/acs.nanolett.9b03333", "year": 2019, "branch": "manufacturing", "role": "duv_lithography", "title": "All-Glass, Large Metalens at Visible Wavelength Using Deep-Ultraviolet Projection Lithography"},
+    {"doi": "10.1021/acsnano.3c09462", "year": 2024, "branch": "manufacturing", "role": "100mm_aperture", "title": "All-Glass 100 mm Diameter Visible Metalens for Imaging the Cosmos"},
+    {"doi": "10.1038/s41377-019-0223-1", "year": 2019, "branch": "computational", "role": "task_specific_co_design", "title": "Design of task-specific optical systems using broadband diffractive neural networks"},
+    {"doi": "10.1038/s41467-021-26443-0", "year": 2021, "branch": "computational", "role": "neural_nano_optics", "title": "Neural nano-optics for high-quality thin lens imaging"},
+    {"doi": "10.1038/s41467-022-29973-3", "year": 2022, "branch": "computational", "role": "large_scale_inverse_design", "title": "Inverse design enables large-scale high-performance meta-optics reshaping virtual reality"},
+    {"doi": "10.1038/ncomms13682", "year": 2016, "branch": "wide_field", "role": "metasurface_doublet", "title": "Miniature optical planar camera based on a wide-angle metasurface doublet corrected for monochromatic aberrations"},
+    {"doi": "10.1021/acs.nanolett.0c02783", "year": 2020, "branch": "wide_field", "role": "fisheye", "title": "Single-Element Diffraction-Limited Fisheye Metalens"}
+  ]
+}

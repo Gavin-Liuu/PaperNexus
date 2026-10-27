@@ -1,0 +1,82 @@
+{
+  "name": "PaperNexus cross-domain fixed-weight audit",
+  "version": "1.0",
+  "purpose": "Test whether the Metalens-derived retrieval and ranking design transfers without weight tuning.",
+  "frozen_policy": {
+    "ranking_weights": {
+      "citation": 1.0,
+      "semantic": 0.8,
+      "bibliographic_coupling": 0.7,
+      "co_citation": 0.6
+    },
+    "semantic_model": "BAAI/bge-small-en-v1.5",
+    "note": "Record results before changing weights or milestone membership."
+  },
+  "runs": [
+    {
+      "id": "transformer_single",
+      "domain": "transformer_ml",
+      "purpose": "Single-seed retrieval from BERT",
+      "target_branches": ["transformer_foundation", "transformer_language", "transformer_vision", "transformer_efficiency"],
+      "queries": ["transformer neural network attention language model", "efficient transformer long context vision transformer"],
+      "seeds": ["10.18653/v1/N19-1423"]
+    },
+    {
+      "id": "transformer_multi",
+      "domain": "transformer_ml",
+      "purpose": "Three-seed retrieval from BERT, T5, and ViT",
+      "target_branches": ["transformer_foundation", "transformer_language", "transformer_vision", "transformer_efficiency"],
+      "queries": ["transformer neural network attention language model", "efficient transformer long context vision transformer"],
+      "seeds": ["10.18653/v1/N19-1423", "W2981852735", "W3094502228"]
+    },
+    {
+      "id": "alphafold_single",
+      "domain": "protein_structure",
+      "purpose": "Single-seed retrieval from AlphaFold2",
+      "target_branches": ["protein_foundation", "protein_classical", "protein_deep_learning", "protein_application"],
+      "queries": ["protein structure prediction AlphaFold history", "deep learning protein structure prediction"],
+      "seeds": ["10.1038/s41586-021-03819-2"]
+    },
+    {
+      "id": "alphafold_multi",
+      "domain": "protein_structure",
+      "purpose": "Three-seed retrieval from AlphaFold2, RoseTTAFold, and ESMFold",
+      "target_branches": ["protein_foundation", "protein_classical", "protein_deep_learning", "protein_application"],
+      "queries": ["protein structure prediction AlphaFold history", "protein language model structure prediction RoseTTAFold ESMFold"],
+      "seeds": ["10.1038/s41586-021-03819-2", "10.1126/science.abj8754", "10.1126/science.ade2574"]
+    }
+  ],
+  "milestones": [
+    {"openalex_id": "W2130942839", "doi": "10.48550/arXiv.1409.3215", "year": 2014, "branch": "transformer_foundation", "role": "sequence_to_sequence", "title": "Sequence to Sequence Learning with Neural Networks"},
+    {"openalex_id": "W2133564696", "doi": "10.48550/arXiv.1409.0473", "year": 2014, "branch": "transformer_foundation", "role": "neural_attention", "title": "Neural Machine Translation by Jointly Learning to Align and Translate"},
+    {"openalex_id": "W2626778328", "aliases": ["10.48550/arXiv.1706.03762"], "year": 2017, "branch": "transformer_foundation", "role": "transformer", "title": "Attention Is All You Need", "evaluation_status": "upstream_identity_failure", "failure": "The currently returned OpenAlex record has an inconsistent 2025 identity and cannot be trusted as citation evidence."},
+    {"openalex_id": "W2963341956", "doi": "10.18653/v1/N19-1423", "year": 2018, "branch": "transformer_language", "role": "bidirectional_pretraining", "title": "BERT"},
+    {"openalex_id": "W2964110616", "doi": "10.18653/v1/P19-1285", "year": 2019, "branch": "transformer_language", "role": "long_context", "title": "Transformer-XL"},
+    {"openalex_id": "W2950813464", "doi": "10.48550/arXiv.1906.08237", "year": 2019, "branch": "transformer_language", "role": "permutation_pretraining", "title": "XLNet"},
+    {"openalex_id": "W2981852735", "doi": "10.48550/arXiv.1910.10683", "year": 2019, "branch": "transformer_language", "role": "text_to_text", "title": "T5"},
+    {"openalex_id": "W3015468748", "doi": "10.48550/arXiv.2004.05150", "year": 2020, "branch": "transformer_language", "role": "sparse_attention", "title": "Longformer"},
+    {"openalex_id": "W3030520226", "doi": "10.1007/978-3-030-58452-8_13", "year": 2020, "branch": "transformer_vision", "role": "object_detection", "title": "DETR"},
+    {"openalex_id": "W3094502228", "doi": "10.48550/arXiv.2010.11929", "year": 2020, "branch": "transformer_vision", "role": "vision_transformer", "title": "An Image Is Worth 16x16 Words"},
+    {"openalex_id": "W3119866685", "doi": "10.48550/arXiv.2101.03961", "year": 2021, "branch": "transformer_efficiency", "role": "mixture_of_experts", "title": "Switch Transformers"},
+    {"aliases": ["10.48550/arXiv.2106.09685"], "year": 2021, "branch": "transformer_efficiency", "role": "parameter_efficient_tuning", "title": "LoRA", "evaluation_status": "upstream_identity_failure", "failure": "The arXiv DOI resolves to an inconsistent OpenAlex title in the current upstream data."},
+    {"openalex_id": "W4281758439", "doi": "10.48550/arXiv.2205.14135", "year": 2022, "branch": "transformer_efficiency", "role": "io_aware_attention", "title": "FlashAttention"},
+
+    {"doi": "10.1126/science.181.4096.223", "year": 1973, "branch": "protein_foundation", "role": "folding_principle", "title": "Principles that Govern the Folding of Protein Chains"},
+    {"doi": "10.1002/prot.340230303", "year": 1997, "branch": "protein_classical", "role": "casp_benchmark", "title": "Critical assessment of methods of protein structure prediction"},
+    {"doi": "10.1016/S0076-6879(04)83004-0", "year": 2004, "branch": "protein_classical", "role": "comparative_modeling", "title": "Comparative Protein Structure Modeling Using MODELLER"},
+    {"doi": "10.1371/journal.pone.0028766", "year": 2011, "branch": "protein_classical", "role": "structure_prediction_assessment", "title": "Progress and Challenges in Protein Structure Prediction"},
+    {"doi": "10.1371/journal.pcbi.1005324", "year": 2017, "branch": "protein_classical", "role": "coevolution_contacts", "title": "Accurate de novo prediction of protein contact map by ultra-deep learning model"},
+    {"doi": "10.1038/s41586-019-1923-7", "year": 2020, "branch": "protein_deep_learning", "role": "alphafold1", "title": "Improved protein structure prediction using potentials from deep learning"},
+    {"doi": "10.1002/prot.25834", "year": 2020, "branch": "protein_deep_learning", "role": "trrosetta", "title": "Improved protein structure prediction using predicted interresidue orientations"},
+    {"doi": "10.1038/s41586-021-03819-2", "year": 2021, "branch": "protein_deep_learning", "role": "alphafold2", "title": "Highly accurate protein structure prediction with AlphaFold"},
+    {"doi": "10.1126/science.abj8754", "year": 2021, "branch": "protein_deep_learning", "role": "rosettafold", "title": "Accurate prediction of protein structures and interactions using a three-track neural network"},
+    {"doi": "10.1038/s41586-021-03828-1", "year": 2021, "branch": "protein_application", "role": "proteome_scale", "title": "Highly accurate protein structure prediction for the human proteome"},
+    {"doi": "10.1093/nar/gkab1061", "year": 2022, "branch": "protein_application", "role": "structure_database", "title": "AlphaFold Protein Structure Database"},
+    {"doi": "10.1038/s41592-022-01488-1", "year": 2022, "branch": "protein_application", "role": "accessible_inference", "title": "ColabFold"},
+    {"doi": "10.1126/science.ade2574", "year": 2023, "branch": "protein_deep_learning", "role": "protein_language_model", "title": "Evolutionary-scale prediction of atomic-level protein structure with a language model"},
+    {"doi": "10.1101/2021.10.04.463034", "year": 2021, "branch": "protein_application", "role": "protein_complexes", "title": "Protein complex prediction with AlphaFold-Multimer"},
+    {"doi": "10.1038/s41586-024-07487-w", "year": 2024, "branch": "protein_application", "role": "biomolecular_interactions", "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3"},
+    {"doi": "10.1126/science.adg7492", "year": 2023, "branch": "protein_application", "role": "variant_effects", "title": "Accurate proteome-wide missense variant effect prediction with AlphaMissense"},
+    {"doi": "10.1126/science.add2187", "year": 2022, "branch": "protein_deep_learning", "role": "metagenomic_structure", "title": "Evolutionary-scale prediction of atomic-level protein structure"}
+  ]
+}

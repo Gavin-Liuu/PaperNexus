@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "papernexus-prototype"
+version = "0.1.0"
+description = "Evidence-aware research route prototype for PaperNexus"
+requires-python = ">=3.11"
+dependencies = [
+  "networkx>=3.1,<4",
+  "requests>=2.31,<3",
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.30,<1",
+]
+
+[project.optional-dependencies]
+dev = ["numpy>=1.26,<3", "pytest>=7.4,<9"]
+semantic = ["fastembed>=0.7,<0.8", "numpy>=1.26,<3"]
+
+[project.scripts]
+papernexus = "papernexus.cli:main"
+papernexus-web = "papernexus.web:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

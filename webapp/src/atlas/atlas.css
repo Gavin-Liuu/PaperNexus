@@ -1,0 +1,22 @@
+.evolution-atlas { color: #a5bac5; }
+.evolution-toolbar { height: 58px; padding: 0 18px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid #263540; font-size: 11px; }
+.evolution-toolbar strong { color: #d6ebe8; font-size: 14px; }
+.evolution-toolbar select { background: #172831; color: #c2d6dc; border: 1px solid #34505b; border-radius: 5px; padding: 5px; font-size: 11px; min-width: 0; }
+.evolution-zoom { margin-left: auto; display: flex; gap: 5px; }
+.evolution-zoom button { width: 31px; height: 31px; display: grid; place-items: center; border: 1px solid #34505b; border-radius: 6px; color: #bad2da; background: #172831; }
+.evolution-zoom button:hover { border-color: #8de4d0; }
+.evolution-canvas { height: min(78vh, 850px); min-height: 590px; position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 40%, #152831 0, #0c1720 75%); }
+.evolution-canvas svg { display: block; touch-action: none; user-select: none; cursor: grab; }
+.evolution-canvas svg:active { cursor: grabbing; }
+.evolution-edge { fill: none; pointer-events: stroke; }
+.evolution-node { cursor: pointer; outline: none; }
+.evolution-node.aggregate { cursor: zoom-in; }
+.evolution-node:focus-visible > rect, .evolution-node:hover > rect { stroke: #d8f3ef; stroke-opacity: 1; }
+.evolution-title { font: 12px system-ui, sans-serif; fill: #dfebef; pointer-events: none; }
+.evolution-meta { font: 10px system-ui, sans-serif; pointer-events: none; }
+.evolution-hint { position: absolute; bottom: 12px; left: 15px; pointer-events: none; color: #88a5b3; font-size: 11px; background: #0d1c26e8; padding: 6px 9px; border-radius: 5px; }
+.evolution-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 7px; padding: 13px 16px; font-size: 11px; border-top: 1px solid #263540; }
+.workspace { max-width: 1740px; }
+.work-grid { grid-template-columns: minmax(0, 1fr) 315px; }
+.side-panel { max-height: calc(78vh + 110px); }
+@media (max-width: 1000px) { .work-grid { grid-template-columns: 1fr; } .evolution-toolbar > span { display: none; } .side-panel { max-height: none; } }
